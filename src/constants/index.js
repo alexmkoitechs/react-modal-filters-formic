@@ -27,8 +27,8 @@ export const formMainData = [
   {labelText: 'Floor from', type: 'number', name: 'floorFrom'},
   {labelText: 'Floor to', type: 'number', name: 'floorTo'},
   {labelText: 'Business', type: 'checkbox', name: 'isBusiness'},
-  {labelText: 'Repair', type: 'checkbox', name: 'hasRepair'},
   {labelText: 'Mortgage', type: 'checkbox', name: 'hasMortgage'},
+  {labelText: 'Repair', type: 'checkbox', name: 'hasRepair'},
   {labelText: 'VIP', type: 'checkbox', name: 'vipped'},
   {labelText: 'Premium', type: 'checkbox', name: 'featured'},
 ];

@@ -52,7 +52,7 @@ const Form = ({ setFilters, onClose }) => {
         <Styled.ButtonsSection>
           <Button
             type="submit"
-            text='Submit'
+            text='Apply'
             backgroundColor='primary'
           />
           <Button
