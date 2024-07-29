@@ -1,72 +1,30 @@
-import Status from '../Status';
+import { getModifiedCardData } from '../../helpers';
 
 import * as Styled from "./styled";
 
 const Card = ({ cardData }) => {
   const {
     city,
-    area,
-    price,
-    rooms,
-    floor,
-    photos,
-    vipped,
-    floors,
-    featured,
-    paidDaily,
-    hasRepair,
-    hasMortgage,
-  } = cardData;
+    linkUrl,
+    statuses,
+    photoUrl,
+    isBusiness,
+    updatedDate,
+    realtyParams,
+    modifiedPrice
+  } = getModifiedCardData(cardData);
 
-  const localPrice = price.value.toLocaleString();
-  const priceSuffix  = paidDaily ? '/day' : paidDaily !== null ? '/month' : '';
-  const realtyParamsArr = [
-    rooms && `${rooms} rooms`, 
-    area.value && ` ${area.value} ${area.units}`, 
-    floor && floors && ` ${floor}/${floors} floor`,
-  ];
-  const realtyParams = realtyParamsArr.filter(param => !!param).toString();
-  const statusIcons = [
-    {
-      value: vipped,
-      symbol: 'V',
-      color: 'black',
-    },
-    {
-      value: featured,
-      symbol: 'P',
-      color: 'red',
-    },
-    {
-      value: hasRepair,
-      symbol: 'P',
-      color: 'grey',
-    },
-   {
-      value: hasMortgage,
-      symbol: 'P',
-      color: 'green',
-    },
-  ];
-
-  const statuses = statusIcons.map(status => (<Status data={status}/>));
-
-  console.log('paidDaily', paidDaily)
-  console.log('priceSuffix', priceSuffix)
-
-  
   return (
     <Styled.Card>
+      <a href={linkUrl}>
+
       <Styled.Image>
-        <img src={photos[0].thumbnail} alt='realty preview' />
+        <img src={photoUrl} alt='realty preview' />
       </Styled.Image>
+
       <Styled.Data>
         <Styled.Price>
-          {localPrice}
-          <span>
-            {price.currency}
-          </span>
-          {priceSuffix}
+          {modifiedPrice}
         </Styled.Price>
         <Styled.City>
           {city.name}
@@ -77,8 +35,14 @@ const Card = ({ cardData }) => {
         <Styled.Statuses>
           {statuses}
         </Styled.Statuses>
+        <Styled.Business>
+          {isBusiness && 'Business'}
+        </Styled.Business>
+        <Styled.Date>
+          {updatedDate}
+        </Styled.Date>
       </Styled.Data>
-
+      </a>
 
     </Styled.Card>
   );

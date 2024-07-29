@@ -7,6 +7,12 @@ export const Card = styled.div`
   margin: 0 15px 15px 0;
   flex-direction: column;
   border: 1px solid #c4c4c4;
+
+  a:-webkit-any-link {
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+  }
 `;
 
 export const Image = styled.div`
@@ -20,7 +26,9 @@ export const Image = styled.div`
 `;
 
 export const Data = styled.div`
+  display: flex;
   padding: 15px;
+  flex-direction: column;
 `;
 
 export const Price = styled.div`
@@ -47,13 +55,16 @@ export const Params = styled.div`
 
 export const Statuses = styled.div`
   display: flex;
+  margin-top: 10px;
 `;
 
-export const Status = styled.div`
-  width: 35px;
-  height: 35px;
-  border: 1px solid black;
-  background: ${({ backColor }) => backColor};
+export const Business = styled.div`
+  height: 20px;
+  font-size: 18px;
+  margin-top: 10px;
 `;
 
-
+export const Date = styled.div`
+  font-size: 18px;
+  margin-top: 10px;
+`;
